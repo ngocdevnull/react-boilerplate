@@ -1,0 +1,18 @@
+---
+description: Always read AGENTS.md before any implementation
+alwaysApply: true
+---
+
+# AGENTS First (Highest Priority)
+
+Before any analysis, edits, or command execution, the agent must:
+
+1. Read `AGENTS.md` at project root.
+2. Follow the checklist and rules in that file as highest priority.
+3. If any conflict appears, prefer `AGENTS.md` project rules over local assumptions.
+
+## Enforcement
+
+- Do not implement changes until `AGENTS.md` has been reviewed in the current task.
+- Keep changes scoped to explicit user request.
+- Verify renamed/moved file imports before finishing.
