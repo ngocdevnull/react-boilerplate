@@ -96,7 +96,7 @@ export function SignInForm() {
               isError={!!errors.email}
               {...register('email')}
             />
-            {errors.email && <span className="text-xs text-[#FF5263]">{errors.email.message}</span>}
+            {errors.email && <span className="text-xs text-error">{errors.email.message}</span>}
           </div>
 
           <div className="flex flex-col gap-1">
@@ -108,7 +108,7 @@ export function SignInForm() {
               {...register('password')}
             />
             {errors.password && (
-              <span className="text-xs text-[#FF5263]">{errors.password.message}</span>
+              <span className="text-xs text-error">{errors.password.message}</span>
             )}
           </div>
         </fieldset>
@@ -117,7 +117,7 @@ export function SignInForm() {
           <Notice
             variant="error"
             className="rounded-[5px]"
-            icon={<AlertTriangle className="h-5 w-5 text-[#FF5263]" />}
+            icon={<AlertTriangle className="h-5 w-5 text-error" />}
             onClose={clearError}
           >
             {authError}
@@ -127,7 +127,7 @@ export function SignInForm() {
         <Button
           type="submit"
           isLoading={isSubmitting}
-          className="h-12 bg-[#796EFF] hover:bg-[#6D63E5] text-white w-full rounded-[5px] font-semibold"
+          className="h-12 bg-primary hover:bg-primary-hover text-white w-full rounded-[5px] font-semibold"
         >
           Login
         </Button>
@@ -139,7 +139,7 @@ export function SignInForm() {
           </label>
           <Link
             to="/forgot-password"
-            className="text-sm text-[#796EFF] font-medium hover:underline"
+            className="text-sm text-primary font-medium hover:underline"
           >
             Forgot Password?
           </Link>

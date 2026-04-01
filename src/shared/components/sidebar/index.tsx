@@ -34,7 +34,7 @@ export function Sidebard({
   return (
     <aside
       className={cn(
-        'flex h-screen w-[280px] flex-col border-r border-[#E8EAF0] bg-white p-5',
+        'flex h-screen w-[280px] flex-col border-r border-border bg-white p-5',
         className,
       )}
     >
@@ -52,8 +52,8 @@ export function Sidebard({
               className={cn(
                 'flex h-10 items-center gap-3 rounded-[8px] px-4 text-sm transition-colors',
                 isActive
-                  ? 'bg-[#06051F] text-white'
-                  : 'text-[#6E7485] hover:bg-[#F2F4F8] hover:text-[#1D2231]',
+                  ? 'bg-sidebar-active-bg text-white'
+                  : 'text-sidebar-inactive hover:bg-sidebar-hover-bg hover:text-sidebar-hover-text',
               )}
             >
               <Icon className="h-4 w-4" />
