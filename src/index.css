@@ -18,6 +18,10 @@
   --color-success-foreground: #059669;
   --color-black-40: #767c84;
   --color-black-10: #323a46;
+  --color-sidebar-active-bg: #06051f;
+  --color-sidebar-inactive: #6e7485;
+  --color-sidebar-hover-bg: #f2f4f8;
+  --color-sidebar-hover-text: #1d2231;
   --color-auth-bg: #f9f9f9;
   --color-auth-input-border: #d1d3d6;
   --color-auth-radio-inactive: #49505b;

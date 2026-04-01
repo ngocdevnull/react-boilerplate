@@ -23,7 +23,7 @@ export function Header() {
           </button>
           <button className="relative text-gray-400 transition-colors hover:text-primary">
             <Bell className="h-6 w-6" />
-            <span className="absolute top-0 right-0 h-2.5 w-2.5 rounded-full border-2 border-white bg-[#FF5263]" />
+            <span className="absolute top-0 right-0 h-2.5 w-2.5 rounded-full border-2 border-white bg-error" />
           </button>
         </div>
 

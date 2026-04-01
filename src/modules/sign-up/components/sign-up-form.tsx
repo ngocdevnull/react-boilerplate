@@ -54,7 +54,7 @@ export function SignUpForm() {
                 {...register('firstName')}
               />
               {errors.firstName && (
-                <span className="text-xs text-[#FF5263]">{errors.firstName.message}</span>
+                <span className="text-xs text-error">{errors.firstName.message}</span>
               )}
             </div>
 
@@ -67,7 +67,7 @@ export function SignUpForm() {
                 {...register('lastName')}
               />
               {errors.lastName && (
-                <span className="text-xs text-[#FF5263]">{errors.lastName.message}</span>
+                <span className="text-xs text-error">{errors.lastName.message}</span>
               )}
             </div>
           </div>
@@ -81,7 +81,7 @@ export function SignUpForm() {
               isError={!!errors.email}
               {...register('email')}
             />
-            {errors.email && <span className="text-xs text-[#FF5263]">{errors.email.message}</span>}
+            {errors.email && <span className="text-xs text-error">{errors.email.message}</span>}
           </div>
 
           <div className="flex flex-col gap-1">
@@ -93,7 +93,7 @@ export function SignUpForm() {
               {...register('password')}
             />
             {errors.password && (
-              <span className="text-xs text-[#FF5263]">{errors.password.message}</span>
+              <span className="text-xs text-error">{errors.password.message}</span>
             )}
           </div>
 
@@ -106,7 +106,7 @@ export function SignUpForm() {
               {...register('confirmPassword')}
             />
             {errors.confirmPassword && (
-              <span className="text-xs text-[#FF5263]">{errors.confirmPassword.message}</span>
+              <span className="text-xs text-error">{errors.confirmPassword.message}</span>
             )}
           </div>
 
@@ -122,7 +122,7 @@ export function SignUpForm() {
                 />
               )}
             />
-            {errors.phone && <span className="text-xs text-[#FF5263]">{errors.phone.message}</span>}
+            {errors.phone && <span className="text-xs text-error">{errors.phone.message}</span>}
           </div>
 
           <div className="flex flex-col gap-1">
@@ -134,7 +134,7 @@ export function SignUpForm() {
               {...register('address')}
             />
             {errors.address && (
-              <span className="text-xs text-[#FF5263]">{errors.address.message}</span>
+              <span className="text-xs text-error">{errors.address.message}</span>
             )}
           </div>
         </fieldset>
@@ -150,7 +150,7 @@ export function SignUpForm() {
             </span>
           </label>
           {errors.agreeTerms && (
-            <span className="text-xs text-[#FF5263]">{errors.agreeTerms.message}</span>
+            <span className="text-xs text-error">{errors.agreeTerms.message}</span>
           )}
         </div>
 
@@ -158,7 +158,7 @@ export function SignUpForm() {
           <Notice
             variant="error"
             className="rounded-[5px]"
-            icon={<AlertTriangle className="h-5 w-5 text-[#FF5263]" />}
+            icon={<AlertTriangle className="h-5 w-5 text-error" />}
             onClose={clearError}
           >
             {authError}
@@ -168,7 +168,7 @@ export function SignUpForm() {
         <Button
           type="submit"
           isLoading={isSubmitting}
-          className="h-12 bg-[#796EFF] hover:bg-[#6D63E5] text-white w-full rounded-[5px] font-semibold"
+          className="h-12 bg-primary hover:bg-primary-hover text-white w-full rounded-[5px] font-semibold"
         >
           Sign Up
         </Button>
