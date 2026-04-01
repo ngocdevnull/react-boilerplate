@@ -35,6 +35,7 @@ The "Brain" of the application. It handles cross-cutting concerns that are indep
 -   **Store**: Global state management (Zustand) for shared data like authentication and settings.
 -   **Guards & Interceptors**: Authentication gates and network-level request/response processing.
 -   **System Types**: Global DTOs and system-wide models.
+-   **I18n**: Internationalization handling (i18next) for multi-language support.
 -   **Rules**: Internal `core` logic must never depend on `modules` (Rule 8).
 
 ### 2. Module Layer (`src/modules`)
@@ -79,13 +80,14 @@ The project follows a set of strict rules (defined in `AGENTS.md`) to ensure con
 
 ## 🛠 Tech Stack
 
--   **Runtime**: React 18 & Vite 5.
+-   **Runtime**: React 18 & Vite 6.
 -   **Language**: TypeScript 5 (Strict Mode).
 -   **Styling**: Tailwind CSS v4 (Glassmorphism & Modern Aesthetics).
 -   **State**: Zustand 5 (Global) & TanStack Query v5 (Server State).
 -   **Validation**: Zod (Schema-based runtime validation).
 -   **Forms**: React Hook Form.
 -   **Icons**: Lucide React.
+-   **I18n**: i18next & react-i18next (Multi-language support).
 -   **Routing**: React Router Dom v6 (with Protected Routes).
 
 ---

@@ -16,10 +16,16 @@ import {
   DynamicDialog,
 } from '@ui';
 
+import { DIAGNOSTIC_REASONS } from './constants/diagnostic-reason.constant';
+
 export function HomePage() {
   const { t } = useTranslation('common');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isGenericDialogOpen, setIsGenericDialogOpen] = useState(false);
+
+  const diagnoticOptions = DIAGNOSTIC_REASONS.map((opt) => ({
+    label: t(opt.labelKey),
+    value: opt.value,
+  }));
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-50 via-slate-100 to-slate-200 font-sans dark:from-slate-900 dark:via-slate-950 dark:to-black p-6">
@@ -129,16 +135,11 @@ export function HomePage() {
           <Label className="text-xs font-bold uppercase tracking-widest text-slate-500">
             {t('app.dialog.reasonForHalt')}
           </Label>
-          <Select>
-            <SelectTrigger className="w-full bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800">
-              <SelectValue placeholder={t('app.dialog.selectDiagnosticReason')} />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="not-available">{t('app.dialog.reasonSensorNotAvailable')}</SelectItem>
-              <SelectItem value="patient-canceled">{t('app.dialog.reasonProtocolCanceled')}</SelectItem>
-              <SelectItem value="other">{t('app.dialog.reasonOtherMechanicalFailure')}</SelectItem>
-            </SelectContent>
-          </Select>
+          <Select
+            placeholder={t('app.dialog.selectDiagnosticReason')}
+            options={diagnoticOptions}
+            className="w-full"
+          />
         </div>
       </DynamicDialog>
     </div>

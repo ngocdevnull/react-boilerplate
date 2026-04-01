@@ -3,8 +3,28 @@ import * as SelectPrimitive from '@radix-ui/react-select';
 import { Check, ChevronDown, ChevronUp } from 'lucide-react';
 
 import { cn } from '../../common/cn';
+import type { SelectProps } from './types';
 
-const Select = SelectPrimitive.Root;
+const Select = ({ options, placeholder, className, children, ...props }: SelectProps) => {
+  if (options) {
+    return (
+      <SelectPrimitive.Root {...props}>
+        <SelectTrigger className={className ?? undefined}>
+          <SelectValue placeholder={placeholder ?? undefined} />
+        </SelectTrigger>
+        <SelectContent>
+          {options.map((option) => (
+            <SelectItem key={String(option.value)} value={String(option.value)}>
+              {option.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </SelectPrimitive.Root>
+    );
+  }
+
+  return <SelectPrimitive.Root {...props}>{children}</SelectPrimitive.Root>;
+};
 
 const SelectGroup = SelectPrimitive.Group;
 
@@ -17,7 +37,7 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      'flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
+      'flex h-10 w-full items-center justify-between rounded-md border border-input bg-background dark:bg-slate-900 border-slate-200 dark:border-slate-800 px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
       className,
     )}
     {...props}

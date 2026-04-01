@@ -37,6 +37,7 @@ Apply **Feature-Based Architecture** for `src/modules`.
 ```text
 src/modules/*/
   ├── components/
+  ├── constants/
   ├── converters/
   ├── hooks/
   ├── services/
@@ -44,6 +45,8 @@ src/modules/*/
   ├── utils/
   └── index.tsx
 ```
+
+Note: Sub-directories (e.g., `constants/`, `hooks/`, `schema/`) should only be created when they are actually used by the module.
 
 ### Rule 3 - No API Calls in Shared Components
 

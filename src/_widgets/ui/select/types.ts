@@ -1,5 +1,11 @@
 import type * as SelectPrimitive from '@radix-ui/react-select';
 
+export type SelectProps = React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root> & {
+  options?: Maybe<ValueOption[]>;
+  placeholder?: Maybe<string>;
+  className?: Maybe<string>;
+};
+
 export type SelectTriggerProps = React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>;
 
 export type SelectContentProps = React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>;
