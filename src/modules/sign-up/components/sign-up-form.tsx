@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { AlertTriangle } from 'lucide-react';
 import { Controller, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button, Checkbox, Input, InputPassword, LoadingOverlay, Notice, PhoneInput } from '@ui';
@@ -11,6 +12,7 @@ import { useSignUp } from '../hooks/use-sign-up';
 import type { SignUpFormValues } from '../types/sign-up-form.type';
 
 export function SignUpForm() {
+  const { t } = useTranslation('authentication');
   const { signUp, isSubmitting, error: authError, clearError } = useSignUp();
   const {
     register,
@@ -34,11 +36,11 @@ export function SignUpForm() {
       <LoadingOverlay loading={isSubmitting} />
       <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)} noValidate>
         <div>
-          <h1 className="text-xl font-bold text-black-10">Sign Up</h1>
+          <h1 className="text-xl font-bold text-black-10">{t('signUp.title')}</h1>
           <p className="mt-1 text-sm text-gray-500">
-            Already have an account?{' '}
+            {t('signUp.hasAccount')}{' '}
             <Link to="/sign-in" className="text-secondary font-medium hover:underline">
-              Sign In
+              {t('signUp.signInLink')}
             </Link>
           </p>
         </div>
@@ -48,7 +50,7 @@ export function SignUpForm() {
             <div className="flex flex-col gap-1">
               <Input
                 id="firstName"
-                placeholder="First Name"
+                placeholder={t('signUp.firstNamePlaceholder')}
                 variant="borderless"
                 isError={!!errors.firstName}
                 {...register('firstName')}
@@ -61,7 +63,7 @@ export function SignUpForm() {
             <div className="flex flex-col gap-1">
               <Input
                 id="lastName"
-                placeholder="Last Name"
+                placeholder={t('signUp.lastNamePlaceholder')}
                 variant="borderless"
                 isError={!!errors.lastName}
                 {...register('lastName')}
@@ -76,7 +78,7 @@ export function SignUpForm() {
             <Input
               id="email"
               type="email"
-              placeholder="Email"
+              placeholder={t('signUp.emailPlaceholder')}
               variant="borderless"
               isError={!!errors.email}
               {...register('email')}
@@ -87,7 +89,7 @@ export function SignUpForm() {
           <div className="flex flex-col gap-1">
             <InputPassword
               id="password"
-              placeholder="Create Password"
+              placeholder={t('signUp.passwordPlaceholder')}
               variant="borderless"
               isError={!!errors.password}
               {...register('password')}
@@ -100,7 +102,7 @@ export function SignUpForm() {
           <div className="flex flex-col gap-1">
             <InputPassword
               id="confirmPassword"
-              placeholder="Confirm Password"
+              placeholder={t('signUp.confirmPasswordPlaceholder')}
               variant="borderless"
               isError={!!errors.confirmPassword}
               {...register('confirmPassword')}
@@ -128,7 +130,7 @@ export function SignUpForm() {
           <div className="flex flex-col gap-1">
             <Input
               id="address"
-              placeholder="Enter your address"
+              placeholder={t('signUp.addressPlaceholder')}
               variant="borderless"
               isError={!!errors.address}
               {...register('address')}
@@ -143,9 +145,9 @@ export function SignUpForm() {
           <label className="flex items-center gap-2 cursor-pointer select-none">
             <Checkbox id="agreeTerms" {...register('agreeTerms')} />
             <span className="text-sm text-gray-600">
-              By signing up, I agree with{' '}
+              {t('signUp.agreePrefix')}{' '}
               <Link to="/terms" className="text-secondary hover:underline">
-                Terms and Conditions
+                {t('signUp.termsLink')}
               </Link>
             </span>
           </label>
@@ -170,7 +172,7 @@ export function SignUpForm() {
           isLoading={isSubmitting}
           className="h-12 bg-primary hover:bg-primary-hover text-white w-full rounded-[5px] font-semibold"
         >
-          Sign Up
+          {t('signUp.submitButton')}
         </Button>
       </form>
     </>

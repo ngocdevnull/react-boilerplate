@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useForm, Controller, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { AlertTriangle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 import {
   Button,
@@ -19,6 +20,7 @@ import { useSignIn } from '../hooks/use-sign-in';
 import type { SignInFormValues } from '../types/sign-in-form.type';
 
 export function SignInForm() {
+  const { t } = useTranslation('authentication');
   const { signIn: submitSignIn, isSubmitting, error: authError, clearError } = useSignIn();
   const {
     register,
@@ -38,11 +40,11 @@ export function SignInForm() {
     <>
       <LoadingOverlay loading={isSubmitting} />
       <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)} noValidate>
-        <h1 className="text-xl font-bold text-black-10">Welcome to Doctsyl</h1>
+        <h1 className="text-xl font-bold text-black-10">{t('signIn.title')}</h1>
         <p className="mt-1 text-sm text-gray-500">
-          Don&apos;t have an account?{' '}
+          {t('signIn.noAccount')}{' '}
           <Link to="/sign-up" className="text-secondary font-medium hover:underline">
-            Sign Up
+            {t('signIn.signUpLink')}
           </Link>
         </p>
 
@@ -66,7 +68,7 @@ export function SignInForm() {
                 }`}
                 >
                   <RadioGroupItem id="role-doctor" value="doctor" className="sr-only" />
-                  Doctor
+                  {t('signIn.doctorRole')}
                 </label>
 
                 <label
@@ -79,7 +81,7 @@ export function SignInForm() {
                 }`}
                 >
                   <RadioGroupItem id="role-patient" value="patient" className="sr-only" />
-                  Patient
+                  {t('signIn.patientRole')}
                 </label>
               </RadioGroup>
             )}
@@ -91,7 +93,7 @@ export function SignInForm() {
             <Input
               id="email"
               type="email"
-              placeholder="Enter your email"
+              placeholder={t('signIn.emailPlaceholder')}
               variant="borderless"
               isError={!!errors.email}
               {...register('email')}
@@ -129,19 +131,19 @@ export function SignInForm() {
           isLoading={isSubmitting}
           className="h-12 bg-primary hover:bg-primary-hover text-white w-full rounded-[5px] font-semibold"
         >
-          Login
+          {t('signIn.loginButton')}
         </Button>
 
         <div className="flex items-center justify-between">
           <label className="flex items-center gap-2 cursor-pointer select-none">
             <Checkbox id="rememberMe" {...register('rememberMe')} />
-            <span className="text-sm text-gray-600">Remember Me</span>
+            <span className="text-sm text-gray-600">{t('signIn.rememberMe')}</span>
           </label>
           <Link
             to="/forgot-password"
             className="text-sm text-primary font-medium hover:underline"
           >
-            Forgot Password?
+            {t('signIn.forgotPassword')}
           </Link>
         </div>
       </form>

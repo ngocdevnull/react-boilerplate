@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   CalendarDays,
   CreditCard,
@@ -15,22 +16,37 @@ import { cn } from '@/_widgets/common/cn';
 
 import type { SidebarItem, SidebarProps } from './types';
 
-const defaultItems: SidebarItem[] = [
-  { key: 'overview', label: 'Overview', href: '/home', icon: LayoutGrid },
-  { key: 'appointment', label: 'Appointment', href: '/appointments', icon: CalendarDays },
-  { key: 'my-patient', label: 'My Patient', href: '/patients', icon: UserRound },
-  { key: 'schedule-timings', label: 'Schedule Timings', href: '/schedule-timings', icon: Clock3 },
-  { key: 'payments', label: 'Payments', href: '/payments', icon: CreditCard },
-  { key: 'message', label: 'Message', href: '/messages', icon: Mail },
-  { key: 'blog', label: 'Blog', href: '/blog', icon: FileText },
-  { key: 'settings', label: 'Settings', href: '/settings', icon: Settings },
+const defaultItemsConfig = [
+  { key: 'overview', labelKey: 'sidebar.overview', href: '/home', icon: LayoutGrid },
+  { key: 'appointment', labelKey: 'sidebar.appointment', href: '/appointments', icon: CalendarDays },
+  { key: 'my-patient', labelKey: 'sidebar.myPatient', href: '/patients', icon: UserRound },
+  {
+    key: 'schedule-timings',
+    labelKey: 'sidebar.scheduleTimings',
+    href: '/schedule-timings',
+    icon: Clock3,
+  },
+  { key: 'payments', labelKey: 'sidebar.payments', href: '/payments', icon: CreditCard },
+  { key: 'message', labelKey: 'sidebar.message', href: '/messages', icon: Mail },
+  { key: 'blog', labelKey: 'sidebar.blog', href: '/blog', icon: FileText },
+  { key: 'settings', labelKey: 'sidebar.settings', href: '/settings', icon: Settings },
 ];
 
 export function Sidebard({
-  items = defaultItems,
+  items,
   activeKey = 'overview',
   className,
 }: SidebarProps) {
+  const { t } = useTranslation('common');
+  const resolvedItems: SidebarItem[] =
+    items ??
+    defaultItemsConfig.map(({ key, labelKey, href, icon }) => ({
+      key,
+      label: t(labelKey),
+      href,
+      icon,
+    }));
+
   return (
     <aside
       className={cn(
@@ -43,7 +59,7 @@ export function Sidebard({
       </div>
 
       <nav className="flex flex-col gap-2">
-        {items.map(({ key, label, href, icon: Icon }) => {
+        {resolvedItems.map(({ key, label, href, icon: Icon }) => {
           const isActive = key === activeKey;
           return (
             <Link

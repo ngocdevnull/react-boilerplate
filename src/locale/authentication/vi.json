@@ -1,0 +1,27 @@
+{
+  "signIn": {
+    "title": "Chao mung den voi Doctsyl",
+    "noAccount": "Ban chua co tai khoan?",
+    "signUpLink": "Dang ky",
+    "doctorRole": "Bac si",
+    "patientRole": "Benh nhan",
+    "emailPlaceholder": "Nhap email cua ban",
+    "loginButton": "Dang nhap",
+    "rememberMe": "Ghi nho toi",
+    "forgotPassword": "Quen mat khau?"
+  },
+  "signUp": {
+    "title": "Dang ky",
+    "hasAccount": "Ban da co tai khoan?",
+    "signInLink": "Dang nhap",
+    "firstNamePlaceholder": "Ten",
+    "lastNamePlaceholder": "Ho",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Tao mat khau",
+    "confirmPasswordPlaceholder": "Xac nhan mat khau",
+    "addressPlaceholder": "Nhap dia chi cua ban",
+    "agreePrefix": "Khi dang ky, toi dong y voi",
+    "termsLink": "Dieu khoan va Dieu kien",
+    "submitButton": "Dang ky"
+  }
+}
