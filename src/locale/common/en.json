@@ -1,0 +1,44 @@
+{
+  "app": {
+    "homeTitle": "React Boilerplate (Home)",
+    "homeSubtitle": "Streamlining grain management with intelligent automation.",
+    "welcomeNotice": "Welcome to React Boilerplate! Please authenticate to access your tools and dashboards.",
+    "quickTestEmail": "Quick Test: Email",
+    "emailPlaceholder": "example@smartgrain.com",
+    "agreeProtocols": "Agree to system protocols",
+    "launchOverview": "Launch Overview",
+    "dialogDemo": "Dialog Demo",
+    "signIn": "Sign in",
+    "dialog": {
+      "confirmOperation": "Confirm Operation",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "warningLine1": "Ongoing automated processes will be halted immediately.",
+      "criticalActionRequired": "CRITICAL ACTION REQUIRED",
+      "reasonForHalt": "Reason for Halt",
+      "selectDiagnosticReason": "Select diagnostic reason",
+      "reasonSensorNotAvailable": "Sensor not available",
+      "reasonProtocolCanceled": "Protocol canceled",
+      "reasonOtherMechanicalFailure": "Other mechanical failure"
+    }
+  },
+  "header": {
+    "searchPlaceholder": "Search Appointment, Patient or etc",
+    "doctorName": "Stephen Conley",
+    "doctorSpecialty": "Cardiologist"
+  },
+  "sidebar": {
+    "overview": "Overview",
+    "appointment": "Appointment",
+    "myPatient": "My Patient",
+    "scheduleTimings": "Schedule Timings",
+    "payments": "Payments",
+    "message": "Message",
+    "blog": "Blog",
+    "settings": "Settings"
+  },
+  "authLayout": {
+    "backgroundAlt": "React Boilerplate background",
+    "logoAlt": "React Boilerplate logo"
+  }
+}

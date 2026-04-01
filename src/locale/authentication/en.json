@@ -1,0 +1,27 @@
+{
+  "signIn": {
+    "title": "Welcome to Doctsyl",
+    "noAccount": "Don't have an account?",
+    "signUpLink": "Sign Up",
+    "doctorRole": "Doctor",
+    "patientRole": "Patient",
+    "emailPlaceholder": "Enter your email",
+    "loginButton": "Login",
+    "rememberMe": "Remember Me",
+    "forgotPassword": "Forgot Password?"
+  },
+  "signUp": {
+    "title": "Sign Up",
+    "hasAccount": "Already have an account?",
+    "signInLink": "Sign In",
+    "firstNamePlaceholder": "First Name",
+    "lastNamePlaceholder": "Last Name",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Create Password",
+    "confirmPasswordPlaceholder": "Confirm Password",
+    "addressPlaceholder": "Enter your address",
+    "agreePrefix": "By signing up, I agree with",
+    "termsLink": "Terms and Conditions",
+    "submitButton": "Sign Up"
+  }
+}

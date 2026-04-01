@@ -1,0 +1,44 @@
+{
+  "app": {
+    "homeTitle": "React Boilerplate (Trang chu)",
+    "homeSubtitle": "Toi uu quan ly ngu coc bang tu dong hoa thong minh.",
+    "welcomeNotice": "Chao mung den voi React Boilerplate! Vui long dang nhap de truy cap cong cu va bang dieu khien.",
+    "quickTestEmail": "Kiem tra nhanh: Email",
+    "emailPlaceholder": "example@smartgrain.com",
+    "agreeProtocols": "Dong y voi quy trinh he thong",
+    "launchOverview": "Mo tong quan",
+    "dialogDemo": "Demo hop thoai",
+    "signIn": "Dang nhap",
+    "dialog": {
+      "confirmOperation": "Xac nhan thao tac",
+      "cancel": "Huy",
+      "confirm": "Xac nhan",
+      "warningLine1": "Cac quy trinh tu dong dang chay se bi dung ngay lap tuc.",
+      "criticalActionRequired": "YEU CAU HANH DONG KHAN CAP",
+      "reasonForHalt": "Ly do dung",
+      "selectDiagnosticReason": "Chon ly do chan doan",
+      "reasonSensorNotAvailable": "Cam bien khong kha dung",
+      "reasonProtocolCanceled": "Quy trinh da bi huy",
+      "reasonOtherMechanicalFailure": "Loi co khi khac"
+    }
+  },
+  "header": {
+    "searchPlaceholder": "Tim lich hen, benh nhan hoac noi dung khac",
+    "doctorName": "Stephen Conley",
+    "doctorSpecialty": "Bac si tim mach"
+  },
+  "sidebar": {
+    "overview": "Tong quan",
+    "appointment": "Lich hen",
+    "myPatient": "Benh nhan cua toi",
+    "scheduleTimings": "Lich lam viec",
+    "payments": "Thanh toan",
+    "message": "Tin nhan",
+    "blog": "Blog",
+    "settings": "Cai dat"
+  },
+  "authLayout": {
+    "backgroundAlt": "Nen React Boilerplate",
+    "logoAlt": "Logo React Boilerplate"
+  }
+}
