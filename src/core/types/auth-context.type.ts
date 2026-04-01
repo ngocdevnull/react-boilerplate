@@ -1,10 +1,11 @@
 import type * as React from 'react';
+
 import type { SignInPayload } from '@core/types/auth/sign-in.type';
 import type { SignUpPayload } from '@core/types/auth/sign-up.type';
 
-export type UnknownRecord = Record<string, unknown>;
-
 import { AuthRole } from '../constants/auth-roles';
+
+export type UnknownRecord = Record<string, unknown>;
 
 export type AuthUser = {
   id: Nullable<ID>;

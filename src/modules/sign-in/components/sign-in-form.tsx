@@ -38,7 +38,7 @@ export function SignInForm() {
     <>
       <LoadingOverlay loading={isSubmitting} />
       <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)} noValidate>
-        <h1 className="text-xl font-bold text-black-10">Wellcome to Doctsyl</h1>
+        <h1 className="text-xl font-bold text-black-10">Welcome to Doctsyl</h1>
         <p className="mt-1 text-sm text-gray-500">
           Don&apos;t have an account?{' '}
           <Link to="/sign-up" className="text-secondary font-medium hover:underline">

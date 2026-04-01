@@ -36,7 +36,7 @@ export function SignUpForm() {
         <div>
           <h1 className="text-xl font-bold text-black-10">Sign Up</h1>
           <p className="mt-1 text-sm text-gray-500">
-            You have account already?{' '}
+            Already have an account?{' '}
             <Link to="/sign-in" className="text-secondary font-medium hover:underline">
               Sign In
             </Link>
@@ -143,9 +143,9 @@ export function SignUpForm() {
           <label className="flex items-center gap-2 cursor-pointer select-none">
             <Checkbox id="agreeTerms" {...register('agreeTerms')} />
             <span className="text-sm text-gray-600">
-              By sign up I agree with{' '}
+              By signing up, I agree with{' '}
               <Link to="/terms" className="text-secondary hover:underline">
-                Terms and condition
+                Terms and Conditions
               </Link>
             </span>
           </label>
