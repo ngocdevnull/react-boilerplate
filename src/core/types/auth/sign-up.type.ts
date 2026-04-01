@@ -12,10 +12,12 @@ export type SignUpPayload = {
 
 export type SignUpResponseDto = {
   accessToken?: string;
+  refreshToken?: string;
   token?: string;
   user?: {
     id: ID;
     email: string;
+    name?: string;
     role: AuthRole;
   };
   data?: unknown;

@@ -1,18 +1,10 @@
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
-import { apiClient } from '../apis/api-client';
 import { AUTH_SESSION_STORAGE_KEY } from '../constants/auth-storage';
+import { setAuthHeader } from '../utils/auth.util';
 import type { AuthUser } from '../types/auth-context.type';
-import type { AuthState } from './auth-store.type';
-
-function setAuthHeader(accessToken: Nullable<string>) {
-  if (accessToken) {
-    apiClient.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
-  } else {
-    delete apiClient.defaults.headers.common.Authorization;
-  }
-}
+import type { AuthState } from '../types/auth.type';
 
 export const useAuthStore = create<AuthState>()(
   devtools(
@@ -20,26 +12,23 @@ export const useAuthStore = create<AuthState>()(
       (set) => ({
         user: null,
         accessToken: null,
-        isLoading: false,
+        refreshToken: null,
         isInitializing: true,
         error: null,
 
-        setAuth: (user: AuthUser, accessToken: string) => {
+        setAuth: (user: AuthUser, accessToken: string, refreshToken: string) => {
           set({
             user,
             accessToken,
+            refreshToken,
             error: null,
           });
           setAuthHeader(accessToken);
         },
 
         clearAuth: () => {
-          set({ user: null, accessToken: null, error: null });
+          set({ user: null, accessToken: null, refreshToken: null, error: null });
           setAuthHeader(null);
-        },
-
-        setLoading: (isLoading: boolean) => {
-          set({ isLoading });
         },
 
         setError: (error: Nullable<string>) => {

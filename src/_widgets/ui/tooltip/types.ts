@@ -4,7 +4,7 @@ import type { HTMLAttributes, ReactNode } from 'react';
 import { tooltipContentVariants, tooltipRootVariants } from './variant';
 
 export interface TooltipProps
-  extends HTMLAttributes<HTMLSpanElement>,
+  extends Omit<HTMLAttributes<HTMLSpanElement>, 'content'>,
     VariantProps<typeof tooltipRootVariants>,
     VariantProps<typeof tooltipContentVariants> {
   content: ReactNode;

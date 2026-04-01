@@ -17,13 +17,14 @@ import {
 import { Input } from '../input';
 import { Popover, PopoverContent, PopoverTrigger } from '../popover';
 import { ScrollArea } from '../scroll-area';
-import type { PhoneInputProps } from './types';
-
-type CountryEntry = { label: string; value: RPNInput.Country | undefined };
+import type {
+  PhoneInputProps,
+  CountrySelectProps,
+  CountrySelectOptionProps,
+} from './phone-input.type';
 
 const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
   const Flag = flags[country];
-
   return (
     <span className="flex h-4 w-6 overflow-hidden rounded-sm bg-foreground/20 [&_svg:not([class*='size-'])]:size-full">
       {Flag && <Flag title={countryName} />}
@@ -42,13 +43,6 @@ const InputComponent = React.forwardRef<HTMLInputElement, React.ComponentProps<'
   ),
 );
 InputComponent.displayName = 'InputComponent';
-
-type CountrySelectProps = {
-  disabled?: boolean;
-  value: RPNInput.Country;
-  options: CountryEntry[];
-  onChange: (country: RPNInput.Country) => void;
-};
 
 const CountrySelect = ({
   disabled,
@@ -131,12 +125,6 @@ const CountrySelect = ({
   );
 };
 
-interface CountrySelectOptionProps extends RPNInput.FlagProps {
-  selectedCountry: RPNInput.Country;
-  onChange: (country: RPNInput.Country) => void;
-  onSelectComplete: () => void;
-}
-
 const CountrySelectOption = ({
   country,
   countryName,
@@ -167,6 +155,7 @@ const PhoneInput = ({
   disabled,
   value,
   onChange,
+  placeholder,
 }: PhoneInputProps) => {
   return (
     <RPNInput.default
@@ -179,8 +168,10 @@ const PhoneInput = ({
       onChange={(v) => onChange?.((v || '') as unknown as string)}
       defaultCountry={defaultCountry}
       disabled={disabled}
+      placeholder={placeholder}
     />
   );
 };
+
 
 export { PhoneInput };

@@ -3,6 +3,7 @@ import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 import { Circle } from 'lucide-react';
 
 import { cn } from '../../common/cn';
+import { Label } from '../label';
 import { radioGroupVariants, radioGroupItemVariants } from './variant';
 import type { RadioGroupProps, RadioGroupItemProps } from './types';
 
@@ -33,12 +34,9 @@ const RadioGroupItem = React.forwardRef<
       </RadioGroupPrimitive.Indicator>
     </RadioGroupPrimitive.Item>
     {label && (
-      <label
-        htmlFor={props.id}
-        className="text-sm font-medium leading-none cursor-pointer peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-      >
+      <Label htmlFor={props.id} className="cursor-pointer">
         {label}
-      </label>
+      </Label>
     )}
   </div>
 ));

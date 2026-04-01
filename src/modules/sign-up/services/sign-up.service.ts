@@ -8,12 +8,13 @@ export const signUpService = {
   signUp: async (payload: SignUpPayload): Promise<SignUpResult> => {
     const response = await authApi.register(payload);
     const accessToken = signUpConverter.toAccessToken(response);
+    const refreshToken = signUpConverter.toRefreshToken(response);
 
-    if (accessToken) {
+    if (accessToken && refreshToken) {
       const user = signUpConverter.toAuthUser(response, payload);
-      return { user, accessToken };
+      return { user, accessToken, refreshToken };
     }
 
-    return { user: null, accessToken: null };
+    return { user: null, accessToken: null, refreshToken: null };
   },
 };

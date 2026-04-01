@@ -2,6 +2,7 @@ import * as React from 'react';
 import { X } from 'lucide-react';
 
 import { cn } from '../../common/cn';
+import { Button } from '../button';
 import { noticeVariants } from './variant';
 import type { NoticeProps } from './types';
 
@@ -20,14 +21,15 @@ const Notice = React.forwardRef<HTMLDivElement, NoticeProps>(
           <div className="leading-relaxed">{children}</div>
         </div>
         {onClose && (
-          <button
+          <Button
             type="button"
+            variant="ghost"
             onClick={onClose}
-            className="ml-3 flex-shrink-0 text-slate-400 hover:text-slate-600 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-md transition-colors"
+            className="h-8 w-8 p-0 ml-3 flex-shrink-0 text-slate-400 hover:text-slate-600 rounded-md transition-colors"
             aria-label="Close"
           >
             <X className="h-5 w-5" />
-          </button>
+          </Button>
         )}
       </div>
     );

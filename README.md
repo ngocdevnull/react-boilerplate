@@ -30,27 +30,25 @@ npm run format  # Prettier formatting
 The project is split into three main layers to ensure a high degree of decoupling and maintainability.
 
 ### 1. Core Layer (`src/core`)
-The "Brain" of the application. It handles cross-cutting concerns that are independent of any specific UI module.
--   **APIs**: Centralized Axios clients and service classes (BaseApi).
--   **Store**: Global state management (Zustand) for shared data like authentication and settings.
--   **Guards & Interceptors**: Authentication gates and network-level request/response processing.
--   **System Types**: Global DTOs and system-wide models.
--   **I18n**: Internationalization handling (i18next) for multi-language support.
--   **Rules**: Internal `core` logic must never depend on `modules` (Rule 8).
+The **"System Infrastructure"** (The Brain). It establishes the rules and services that power the entire application.
+-   **Why this exists**: To ensure global concerns (Auth, Network, Security) are handled centrally and remain independent of any UI or business feature. It is the lowest layer and **must never depend on modules** (Rule 8).
+-   **Contents**: API clients, Route Guards, Request Interceptors, Global Stores (Auth), System-wide Types, and I18n setup.
 
 ### 2. Module Layer (`src/modules`)
-The "Features" of the application. Each folder represents a self-contained domain (e.g., `sign-in`, `dashboard`).
-Each module follows a consistent internal structure:
--   `components/`: UI specific to this feature.
--   `hooks/`: Feature-specific side effects and state management.
--   `services/`: Business logic and orchestration.
--   `converters/`: Maps external API DTOs into clean internal Application Models.
--   `types/`: Domain-specific type declarations (Rule 11).
+The **"Business Features"** (The Heart). Each folder represents a self-contained domain or feature of the application (e.g., `sign-in`, `home`).
+-   **Structure**: Each module maintains its own components, constants, hooks, services, converters, types, and utils.
+-   **Why this exists**: To keep features isolated. If you delete a module, the rest of the application remains functional. It bridges the gap between raw data (Core) and visual display (UI).
 
 ### 3. Shared & UI Layer (`src/shared` & `src/_widgets/ui`)
--   **`_widgets/ui`**: A flat, atomic-style UI kit (Button, Input, Checkbox). These are strictly presentational (Rule 1).
--   **`shared/components`**: Cross-feature components (Header, Sidebar). These are "dumb" components and **must not make API calls** (Rule 3).
--   **`shared/layout`**: High-level page structures.
+The **"Visual Components"** (The Body). This layer is strictly presentational and handles how things look.
+
+#### 🟢 UI Widgets (`src/_widgets/ui`) - The Primitives
+-   **Purpose**: Atomic-level building blocks like `Button`, `Input`, `Select`.
+-   **Why this is separate**: These are context-free "bricks" that could be moved to any project. They follow a flat structure (Rule 1) and focus purely on base design tokens.
+
+#### 🔵 Shared Components (`src/shared`) - The Composites
+-   **Purpose**: Application-specific components like `Header`, `Sidebar`, or specialized `Layouts`.
+-   **Why this is separate**: These are built by composing multiple UI Widgets together. While they remain "dumb" (no API calls - Rule 3), they represent the specific layout structures of *this* project.
 
 ---
 

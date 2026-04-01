@@ -1,4 +1,8 @@
 {
+  "errorBoundary": {
+    "title": "Something went wrong",
+    "description": "The `{{moduleName}}` module failed to render. Please try refreshing this page."
+  },
   "app": {
     "homeTitle": "React Boilerplate (Home)",
     "homeSubtitle": "Streamlining grain management with intelligent automation.",

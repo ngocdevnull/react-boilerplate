@@ -3,8 +3,10 @@ import { X } from 'lucide-react';
 
 import { cn } from '../../common/cn';
 
-import type { ToastProps, ToastViewportProps } from './types';
+import type { ToastProps, ToastViewportProps } from './toast.type';
 import { toastVariants, toastViewportVariants } from './variant';
+import { Toaster } from './toaster';
+import { useToast, toast } from './use-toast';
 
 const ToastProvider = ToastPrimitive.Provider;
 
@@ -59,4 +61,5 @@ export function ToastViewport({ className }: ToastViewportProps) {
   );
 }
 
-export { ToastProvider };
+export { ToastProvider, Toaster, useToast, toast };
+

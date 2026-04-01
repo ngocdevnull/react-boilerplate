@@ -1,7 +1,11 @@
 import { Component } from 'react';
+import { withTranslation, WithTranslation } from 'react-i18next';
+
 import type { ErrorBoundaryProps, ErrorBoundaryState } from './error-boundary.type';
 
-export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+interface Props extends ErrorBoundaryProps, WithTranslation {}
+
+class ErrorBoundaryBase extends Component<Props, ErrorBoundaryState> {
   state: Readonly<ErrorBoundaryState> = {
     hasError: false,
   };
@@ -15,20 +19,23 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
   }
 
   render() {
+    const { t, moduleName, children } = this.props;
+
     if (this.state.hasError) {
       return (
         <div className="flex min-h-screen items-center justify-center p-6">
           <div className="w-full max-w-md rounded-md border border-red-100 bg-red-50 p-4 text-sm text-red-700">
-            <p className="font-semibold">Something went wrong</p>
+            <p className="font-semibold">{t('errorBoundary.title')}</p>
             <p className="mt-1">
-              The `{this.props.moduleName}` module failed to render. Please try refreshing this
-              page.
+              {t('errorBoundary.description', { moduleName })}
             </p>
           </div>
         </div>
       );
     }
 
-    return this.props.children;
+    return children;
   }
 }
+
+export const ErrorBoundary = withTranslation('common')(ErrorBoundaryBase);

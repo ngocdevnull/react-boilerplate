@@ -1,7 +1,6 @@
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
 
 import { cn } from '../../common/cn';
-
 import type { TooltipProps } from './types';
 import { tooltipContentVariants, tooltipRootVariants } from './variant';
 

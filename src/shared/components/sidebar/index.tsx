@@ -14,7 +14,7 @@ import {
 import logoIcon from '@/assets/icons/doct.svg';
 import { cn } from '@/_widgets/common/cn';
 
-import type { SidebarItem, SidebarProps } from './types';
+import type { SidebarItem, SidebarProps } from './sidebar.type';
 
 const defaultItemsConfig = [
   { key: 'overview', labelKey: 'sidebar.overview', href: '/home', icon: LayoutGrid },
@@ -32,7 +32,7 @@ const defaultItemsConfig = [
   { key: 'settings', labelKey: 'sidebar.settings', href: '/settings', icon: Settings },
 ];
 
-export function Sidebard({
+export function Sidebar({
   items,
   activeKey = 'overview',
   className,

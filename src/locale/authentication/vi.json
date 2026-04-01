@@ -20,8 +20,19 @@
     "passwordPlaceholder": "Tao mat khau",
     "confirmPasswordPlaceholder": "Xac nhan mat khau",
     "addressPlaceholder": "Nhap dia chi cua ban",
+    "phonePlaceholder": "Nhap so dien thoai cua ban",
+
     "agreePrefix": "Khi dang ky, toi dong y voi",
     "termsLink": "Dieu khoan va Dieu kien",
     "submitButton": "Dang ky"
+  },
+  "forgotPassword": {
+    "title": "Quen mat khau",
+    "description": "Nhap email cua ban de nhan huong dan dat lai mat khau.",
+    "emailPlaceholder": "Nhap email cua ban",
+    "submitButton": "Gui lien ket dat lai mat khau",
+    "successMessage": "Neu tai khoan ton tai voi email nay, huong dan dat lai mat khau da duoc gui.",
+    "backToSignInPrefix": "Ban da nho mat khau?",
+    "backToSignInLink": "Dang nhap"
   }
 }

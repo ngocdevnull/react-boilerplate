@@ -15,4 +15,5 @@ export const toastVariants = cva('flex w-full items-start gap-3 rounded-md borde
   },
 });
 
-export const toastViewportVariants = cva('fixed right-4 top-4 z-[100] flex w-full max-w-sm flex-col gap-2');
+export const toastViewportVariants = cva('fixed left-1/2 top-4 z-[100] flex w-full max-w-sm -translate-x-1/2 flex-col gap-2');
+

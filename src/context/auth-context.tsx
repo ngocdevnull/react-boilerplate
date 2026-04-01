@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useAuthStore } from '@core/store/auth-store';
+import { useAuthStore } from '@core/store/auth.store';
 
 export const useAuth = () => {
   const store = useAuthStore();
