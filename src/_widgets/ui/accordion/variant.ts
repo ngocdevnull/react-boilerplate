@@ -5,7 +5,7 @@ export const accordionVariants = cva('flex w-full flex-col rounded-md border bor
 export const accordionItemVariants = cva('group border-b border-border last:border-b-0');
 
 export const accordionTriggerVariants = cva(
-  'flex cursor-pointer list-none items-center justify-between px-4 py-3 text-sm font-semibold text-black-10',
+  'flex cursor-pointer list-none items-center justify-between px-4 py-3 text-sm font-semibold text-primary',
 );
 
 export const accordionContentVariants = cva('px-4 pb-4 text-sm text-black-40');

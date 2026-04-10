@@ -1,14 +1,14 @@
 import { AUTH_ROLES } from '@core/constants/auth-roles';
-import type { SignUpPayload, SignUpResponseDto } from '@core/types/auth/sign-up.type';
+import type { SignUpPayload, SignUpResponseDto } from '@core/types/auth/sign-up.dto';
 import type { AuthUser, UnknownRecord } from '@core/types/auth-context.type';
-
 import { isRecord, toNullableString } from '../utils/mapper.util';
-
-function toUser(value: unknown): Nullable<AuthUser> {
+const toUser = (value: unknown): Nullable<AuthUser> => {
   if (!isRecord(value)) return null;
   const email = toNullableString(value.email);
   const name = toNullableString(value.name) ?? email ?? '';
-  const role = toNullableString(value.role) as Nullable<(typeof AUTH_ROLES)[keyof typeof AUTH_ROLES]>;
+  const role = toNullableString(value.role) as Nullable<
+    (typeof AUTH_ROLES)[keyof typeof AUTH_ROLES]
+  >;
   if (!email || !role) return null;
   return {
     id: (value.id as Nullable<string>) ?? null,
@@ -16,8 +16,7 @@ function toUser(value: unknown): Nullable<AuthUser> {
     name,
     role,
   };
-}
-
+};
 export const signUpConverter = {
   toAccessToken: (response: SignUpResponseDto): Nullable<string> => {
     if (response.accessToken) return response.accessToken;
@@ -29,7 +28,6 @@ export const signUpConverter = {
     }
     return null;
   },
-
   toRefreshToken: (response: SignUpResponseDto): Nullable<string> => {
     if (response.refreshToken) return response.refreshToken;
     if (isRecord(response.data)) {
@@ -39,7 +37,6 @@ export const signUpConverter = {
     }
     return null;
   },
-
   toAuthUser: (response: SignUpResponseDto, payload: SignUpPayload): AuthUser => {
     const directUser = toUser(response.user);
     if (directUser) return directUser;

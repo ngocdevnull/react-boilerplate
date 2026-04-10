@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 
 export const datePickerVariants = cva(
-  'flex h-12 w-full rounded-[5px] border bg-auth-bg px-3 py-2 text-sm text-black-10 outline-none transition-colors',
+  'flex h-12 w-full rounded-[5px] border bg-auth-bg px-3 py-2 text-sm text-primary outline-none transition-colors',
   {
     variants: {
       isError: {

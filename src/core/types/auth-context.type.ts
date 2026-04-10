@@ -1,7 +1,7 @@
 import type * as React from 'react';
 
-import type { SignInPayload } from './auth/sign-in.type';
-import type { SignUpPayload } from './auth/sign-up.type';
+import type { SignInPayload } from './auth/sign-in.dto';
+import type { SignUpPayload } from './auth/sign-up.dto';
 import type { AuthRole } from './auth.type';
 
 export type UnknownRecord = Record<string, unknown>;

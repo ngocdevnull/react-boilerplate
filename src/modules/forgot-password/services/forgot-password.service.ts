@@ -1,5 +1,5 @@
 import { authApi } from '@core/apis/auth.api';
-import type { ForgotPasswordPayload } from '@core/types/auth/forgot-password.type';
+import type { ForgotPasswordPayload } from '@core/types/auth/forgot-password.dto';
 
 import type { ForgotPasswordResult } from '../types/forgot-password.service.type';
 import { toForgotPasswordMessage } from '../utils/mapper.util';

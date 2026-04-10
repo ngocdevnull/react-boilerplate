@@ -1,26 +1,19 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
 import { AlertTriangle } from 'lucide-react';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Button, Checkbox, Input, InputPassword, PhoneInput, Label, InputField, CheckboxField, useToast } from '@ui';
-
-
+import { Button, PhoneInputField, InputField, CheckboxField, useToast } from '@ui';
 import { signUpSchema } from '../schema/sign-up.schema';
 import { toSignUpPayload } from '../utils/to-sign-up-payload';
 import { useSignUp } from '../hooks/use-sign-up';
 import type { SignUpFormValues } from '../types/sign-up-form.type';
-
-export function SignUpForm() {
+export const SignUpForm = () => {
   const { t } = useTranslation('authentication');
   const { signUp, isSubmitting, error: authError, clearError } = useSignUp();
   const { toast } = useToast();
-
   const {
-    register,
     control,
     handleSubmit,
     formState: { errors },
@@ -31,11 +24,9 @@ export function SignUpForm() {
       phone: '',
     },
   });
-
   const onSubmit = async (data: SignUpFormValues) => {
     await signUp(toSignUpPayload(data));
   };
-
   useEffect(() => {
     if (authError) {
       toast({
@@ -46,8 +37,6 @@ export function SignUpForm() {
       });
     }
   }, [authError, toast, clearError]);
-
-
   return (
     <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)} noValidate>
       <div>
@@ -62,96 +51,80 @@ export function SignUpForm() {
 
       <fieldset className="flex flex-col gap-4 border-0 p-0 m-0">
         <div className="grid grid-cols-2 gap-4">
-          <InputField error={errors.firstName?.message}>
-            <Input
-              id="firstName"
-              placeholder={t('signUp.firstNamePlaceholder')}
-              variant="borderless"
-              isError={!!errors.firstName}
-              {...register('firstName')}
-            />
-          </InputField>
+          <InputField
+            name="firstName"
+            control={control}
+            placeholder={t('signUp.firstNamePlaceholder')}
+            variant="borderless"
+            error={errors.firstName?.message}
+          />
 
-          <InputField error={errors.lastName?.message}>
-            <Input
-              id="lastName"
-              placeholder={t('signUp.lastNamePlaceholder')}
-              variant="borderless"
-              isError={!!errors.lastName}
-              {...register('lastName')}
-            />
-          </InputField>
+          <InputField
+            name="lastName"
+            control={control}
+            placeholder={t('signUp.lastNamePlaceholder')}
+            variant="borderless"
+            error={errors.lastName?.message}
+          />
         </div>
 
-        <InputField error={errors.email?.message}>
-          <Input
-            id="email"
-            type="email"
-            placeholder={t('signUp.emailPlaceholder')}
-            variant="borderless"
-            isError={!!errors.email}
-            {...register('email')}
-          />
-        </InputField>
+        <InputField
+          name="email"
+          control={control}
+          type="email"
+          placeholder={t('signUp.emailPlaceholder')}
+          variant="borderless"
+          error={errors.email?.message}
+        />
 
-        <InputField error={errors.password?.message}>
-          <InputPassword
-            id="password"
-            placeholder={t('signUp.passwordPlaceholder')}
-            variant="borderless"
-            isError={!!errors.password}
-            {...register('password')}
-          />
-        </InputField>
+        <InputField
+          name="password"
+          control={control}
+          type="password"
+          placeholder={t('signUp.passwordPlaceholder')}
+          variant="borderless"
+          error={errors.password?.message}
+        />
 
-        <InputField error={errors.confirmPassword?.message}>
-          <InputPassword
-            id="confirmPassword"
-            placeholder={t('signUp.confirmPasswordPlaceholder')}
-            variant="borderless"
-            isError={!!errors.confirmPassword}
-            {...register('confirmPassword')}
-          />
-        </InputField>
+        <InputField
+          name="confirmPassword"
+          control={control}
+          type="password"
+          placeholder={t('signUp.confirmPasswordPlaceholder')}
+          variant="borderless"
+          error={errors.confirmPassword?.message}
+        />
 
-        <InputField error={errors.phone?.message}>
-          <Controller
-            control={control}
-            name="phone"
-            render={({ field }) => (
-              <PhoneInput
-                defaultCountry="VN"
-                value={field.value}
-                onChange={(value) => field.onChange(value)}
-                placeholder={t('signUp.phonePlaceholder')}
-              />
+        <PhoneInputField
+          name="phone"
+          control={control}
+          defaultCountry="VN"
+          placeholder={t('signUp.phonePlaceholder')}
+          error={errors.phone?.message}
+        />
 
-            )}
-          />
-        </InputField>
-
-        <InputField error={errors.address?.message}>
-          <Input
-            id="address"
-            placeholder={t('signUp.addressPlaceholder')}
-            variant="borderless"
-            isError={!!errors.address}
-            {...register('address')}
-          />
-        </InputField>
+        <InputField
+          name="address"
+          control={control}
+          placeholder={t('signUp.addressPlaceholder')}
+          variant="borderless"
+          error={errors.address?.message}
+        />
       </fieldset>
 
-      <CheckboxField error={errors.agreeTerms?.message}>
-        <Label className="flex items-center gap-2 cursor-pointer select-none">
-          <Checkbox id="agreeTerms" {...register('agreeTerms')} />
-          <span className="text-sm text-gray-600">
+      <CheckboxField
+        name="agreeTerms"
+        control={control}
+        error={errors.agreeTerms?.message}
+        label={
+          <>
             {t('signUp.agreePrefix')}{' '}
             <Link to="/terms" className="text-secondary hover:underline">
               {t('signUp.termsLink')}
             </Link>
-          </span>
-        </Label>
-      </CheckboxField>
+          </>
+        }
+      />
 
       <Button
         type="submit"
@@ -162,4 +135,4 @@ export function SignUpForm() {
       </Button>
     </form>
   );
-}
+};

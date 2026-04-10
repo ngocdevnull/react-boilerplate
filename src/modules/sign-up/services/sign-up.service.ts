@@ -1,4 +1,4 @@
-import type { SignUpPayload } from '@core/types/auth/sign-up.type';
+import type { SignUpPayload } from '@core/types/auth/sign-up.dto';
 import { authApi } from '@core/apis/auth.api';
 
 import type { SignUpResult } from '../types/sign-up.service.type';

@@ -2,14 +2,11 @@ import { DEFAULT_FALLBACK_ERROR_MESSAGE } from '@core/constants/http-error-messa
 import { useAuthStore } from '@core/store/auth.store';
 import { useLoadingStore } from '@core/store/loading.store';
 import type { HttpError } from '@core/types/http-error.type';
-import type { SignUpPayload } from '@core/types/auth/sign-up.type';
-
+import type { SignUpPayload } from '@core/types/auth/sign-up.dto';
 import { signUpService } from '../services/sign-up.service';
-
-export function useSignUp() {
+export const useSignUp = () => {
   const { setAuth, setError, clearError, error } = useAuthStore();
   const { isLoading, setLoading } = useLoadingStore();
-
   const signUp = async (payload: SignUpPayload) => {
     setLoading(true);
     setError(null);
@@ -26,11 +23,10 @@ export function useSignUp() {
       setLoading(false);
     }
   };
-
   return {
     signUp,
     isSubmitting: isLoading,
     error,
-    clearError
+    clearError,
   };
-}
+};

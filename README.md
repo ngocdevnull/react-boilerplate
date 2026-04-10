@@ -71,7 +71,7 @@ The project follows a set of strict rules (defined in `AGENTS.md`) to ensure con
     1. External libraries 2. Project aliases (@core, @ui) 3. Relative paths (./, ../).
 -   **Design Tokens (Rule 6)**: No hardcoded HEX colors. Always use global design tokens (e.g., `bg-primary`, `text-black-10`).
 -   **No Comments (Rule 7)**: Code must be self-documenting through clear naming and modularity.
--   **Explicit Typing (Rule 11)**: All types must reside in `.type.ts` files or `types` folders. No inline type definitions in `.tsx` or `.ts` files.
+-   **Explicit Typing (Rule 11)**: All types must reside in `types.ts` files or `types` folders. No inline type definitions in `.tsx` or `.ts` files.
 -   **Global Utility Types (Rule 9)**: Use `Nullable<T>`, `Maybe<T>`, or `Nillable<T>` instead of raw `| null` or `| undefined`.
 
 ---

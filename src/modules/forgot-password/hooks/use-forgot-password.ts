@@ -2,14 +2,11 @@ import { DEFAULT_FALLBACK_ERROR_MESSAGE } from '@core/constants/http-error-messa
 import { useAuthStore } from '@core/store/auth.store';
 import { useLoadingStore } from '@core/store/loading.store';
 import type { HttpError } from '@core/types/http-error.type';
-import type { ForgotPasswordPayload } from '@core/types/auth/forgot-password.type';
-
+import type { ForgotPasswordPayload } from '@core/types/auth/forgot-password.dto';
 import { forgotPasswordService } from '../services/forgot-password.service';
-
-export function useForgotPassword() {
+export const useForgotPassword = () => {
   const { setError, clearError, error } = useAuthStore();
   const { isLoading, setLoading } = useLoadingStore();
-
   const forgotPassword = async (payload: ForgotPasswordPayload) => {
     setLoading(true);
     setError(null);
@@ -23,11 +20,10 @@ export function useForgotPassword() {
       setLoading(false);
     }
   };
-
   return {
     forgotPassword,
     isSubmitting: isLoading,
     error,
     clearError,
   };
-}
+};

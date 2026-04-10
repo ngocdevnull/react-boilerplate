@@ -1,6 +1,5 @@
 import type { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
-
-export function setupRequestInterceptor(apiClient: AxiosInstance): void {
+export const setupRequestInterceptor = (apiClient: AxiosInstance): void => {
   apiClient.interceptors.request.use(
     (config: InternalAxiosRequestConfig) => {
       return config;
@@ -9,9 +8,8 @@ export function setupRequestInterceptor(apiClient: AxiosInstance): void {
       return Promise.reject(error);
     },
   );
-}
-
-export function setupResponseInterceptor(apiClient: AxiosInstance): void {
+};
+export const setupResponseInterceptor = (apiClient: AxiosInstance): void => {
   apiClient.interceptors.response.use(
     (response: AxiosResponse) => {
       return response;
@@ -20,4 +18,4 @@ export function setupResponseInterceptor(apiClient: AxiosInstance): void {
       return Promise.reject(error);
     },
   );
-}
+};

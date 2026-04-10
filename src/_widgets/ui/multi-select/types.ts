@@ -1,12 +1,12 @@
 export interface Option {
   label: string;
-  value: string;
+  value: ID;
 }
 
 export interface MultiSelectProps {
-  options: Option[];
-  selected: string[];
-  onChange: (selected: string[]) => void;
+  options: readonly Option[];
+  selected: ID[];
+  onChange: (selected: ID[]) => void;
   placeholder?: string;
   className?: string;
 }

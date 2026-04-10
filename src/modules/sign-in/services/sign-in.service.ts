@@ -1,6 +1,6 @@
 import { authApi } from '@core/apis/auth.api';
 import type { AuthUser } from '@core/types/auth-context.type';
-import type { SignInPayload } from '@core/types/auth/sign-in.type';
+import type { SignInPayload } from '@core/types/auth/sign-in.dto';
 
 import { signInConverter } from '../converters/sign-in.converter';
 import type { SignInResult } from '../types/sign-in.service.type';

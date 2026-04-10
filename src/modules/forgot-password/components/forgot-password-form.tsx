@@ -3,27 +3,24 @@ import { AlertTriangle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Button, Input, InputField, useToast } from '@ui';
+import { Button, InputField, useToast } from '@ui';
 
 import { useForgotPassword } from '../hooks/use-forgot-password';
 import { forgotPasswordSchema } from '../schema/forgot-password.schema';
 import type { ForgotPasswordFormValues } from '../types/forgot-password-form.type';
 
-export function ForgotPasswordForm() {
+export const ForgotPasswordForm = () => {
   const { t } = useTranslation('authentication');
   const { forgotPassword, isSubmitting, error: authError, clearError } = useForgotPassword();
   const { toast } = useToast();
-
   const {
-    register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm<ForgotPasswordFormValues>({
     resolver: zodResolver(forgotPasswordSchema),
   });
-
   const onSubmit = async (data: ForgotPasswordFormValues) => {
     const result = await forgotPassword({ email: data.email });
     toast({
@@ -31,7 +28,6 @@ export function ForgotPasswordForm() {
       message: result.message || t('forgotPassword.successMessage'),
     });
   };
-
   useEffect(() => {
     if (authError) {
       toast({
@@ -42,7 +38,6 @@ export function ForgotPasswordForm() {
       });
     }
   }, [authError, toast, clearError]);
-
   return (
     <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)} noValidate>
       <div>
@@ -50,16 +45,14 @@ export function ForgotPasswordForm() {
         <p className="mt-1 text-sm text-gray-500">{t('forgotPassword.description')}</p>
       </div>
 
-      <InputField error={errors.email?.message}>
-        <Input
-          id="email"
-          type="email"
-          placeholder={t('forgotPassword.emailPlaceholder')}
-          variant="borderless"
-          isError={!!errors.email}
-          {...register('email')}
-        />
-      </InputField>
+      <InputField
+        name="email"
+        control={control}
+        type="email"
+        placeholder={t('forgotPassword.emailPlaceholder')}
+        variant="borderless"
+        error={errors.email?.message}
+      />
 
       <Button
         type="submit"
@@ -77,4 +70,4 @@ export function ForgotPasswordForm() {
       </p>
     </form>
   );
-}
+};

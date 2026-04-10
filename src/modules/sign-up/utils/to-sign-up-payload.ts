@@ -1,8 +1,6 @@
-import type { SignUpPayload } from '@core/types/auth/sign-up.type';
-
+import type { SignUpPayload } from '@core/types/auth/sign-up.dto';
 import type { SignUpFormValues } from '../types/sign-up-form.type';
-
-export function toSignUpPayload(values: SignUpFormValues): SignUpPayload {
+export const toSignUpPayload = (values: SignUpFormValues): SignUpPayload => {
   return {
     firstName: values.firstName,
     lastName: values.lastName,
@@ -12,4 +10,4 @@ export function toSignUpPayload(values: SignUpFormValues): SignUpPayload {
     password: values.password,
     agreeTerms: values.agreeTerms,
   };
-}
+};
