@@ -1,0 +1,1 @@
+export const MILL_MANAGEMENT_PAGE_SIZE = 10;

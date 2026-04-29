@@ -1,4 +1,8 @@
 {
+  "errorBoundary": {
+    "title": "Đã có lỗi xảy ra",
+    "description": "Module `{{moduleName}}` gặp sự cố khi hiển thị. Vui lòng thử tải lại trang."
+  },
   "app": {
     "homeTitle": "React Boilerplate (Trang chu)",
     "homeSubtitle": "Toi uu quan ly ngu coc bang tu dong hoa thong minh.",

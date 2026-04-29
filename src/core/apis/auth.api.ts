@@ -1,7 +1,11 @@
 import { apiClient } from './api-client';
 import { BaseApi } from './base.api';
-import type { SignInPayload, SignInResponseDto } from '../types/auth/sign-in.type';
-import type { SignUpPayload, SignUpResponseDto } from '../types/auth/sign-up.type';
+import type {
+  ForgotPasswordPayload,
+  ForgotPasswordResponseDto,
+} from '../types/auth/forgot-password.dto';
+import type { SignInPayload, SignInResponseDto } from '../types/auth/sign-in.dto';
+import type { SignUpPayload, SignUpResponseDto } from '../types/auth/sign-up.dto';
 
 export class AuthApi extends BaseApi {
   protected readonly path = '/auth';
@@ -16,6 +20,10 @@ export class AuthApi extends BaseApi {
 
   public verifyEmail(token: string) {
     return apiClient.post<string>(`${this.path}/verify-email?token=${token}`, '');
+  }
+
+  public forgotPassword(data: ForgotPasswordPayload) {
+    return apiClient.post<ForgotPasswordResponseDto>(`${this.path}/forgot-password`, data);
   }
 }
 

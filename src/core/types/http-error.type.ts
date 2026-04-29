@@ -1,5 +1,9 @@
+export type HttpErrorData = {
+  message?: Maybe<unknown>;
+};
+
 export type HttpError = {
-  status?: number;
+  status?: Maybe<number>;
   message: string;
-  data?: unknown;
+  data?: Maybe<unknown>;
 };

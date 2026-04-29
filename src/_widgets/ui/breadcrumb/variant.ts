@@ -6,6 +6,6 @@ export const breadcrumbListVariants = cva('flex items-center gap-2 text-sm text-
 
 export const breadcrumbItemVariants = cva('flex items-center gap-2');
 
-export const breadcrumbLinkVariants = cva('transition-colors hover:text-black-10');
+export const breadcrumbLinkVariants = cva('transition-colors hover:text-primary');
 
-export const breadcrumbCurrentVariants = cva('font-semibold text-black-10');
+export const breadcrumbCurrentVariants = cva('font-semibold text-primary');

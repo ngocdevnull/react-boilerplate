@@ -20,8 +20,19 @@
     "passwordPlaceholder": "Create Password",
     "confirmPasswordPlaceholder": "Confirm Password",
     "addressPlaceholder": "Enter your address",
+    "phonePlaceholder": "Enter your phone number",
+
     "agreePrefix": "By signing up, I agree with",
     "termsLink": "Terms and Conditions",
     "submitButton": "Sign Up"
+  },
+  "forgotPassword": {
+    "title": "Forgot Password",
+    "description": "Enter your email and we will send password reset instructions.",
+    "emailPlaceholder": "Enter your email",
+    "submitButton": "Send Reset Link",
+    "successMessage": "If an account exists for this email, reset instructions have been sent.",
+    "backToSignInPrefix": "Remember your password?",
+    "backToSignInLink": "Sign In"
   }
 }

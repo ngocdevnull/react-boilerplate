@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority';
 export const radioGroupVariants = cva('grid gap-2');
 
 export const radioGroupItemVariants = cva(
-  'aspect-square h-4 w-4 rounded-full border border-input text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors',
+  'group flex items-center w-full h-[44px] gap-3 rounded-input border border-border-primary bg-transparent px-4 transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-brand-green data-[state=checked]:bg-brand-green/5',
   {
     variants: {
       isError: {

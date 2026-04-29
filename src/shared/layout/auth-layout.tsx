@@ -1,13 +1,9 @@
 import { useTranslation } from 'react-i18next';
-
 import backgroundImage from '@/assets/images/background.png';
 import logoIcon from '@/assets/icons/doct.svg';
-
 import type { AuthLayoutProps } from './auth-layout.type';
-
-export function AuthLayout({ children }: AuthLayoutProps) {
+export const AuthLayout = ({ children }: AuthLayoutProps) => {
   const { t } = useTranslation('common');
-
   return (
     <main className="flex min-h-screen">
       <div className="flex w-1/2 items-center justify-center bg-auth-bg p-8">
@@ -26,4 +22,4 @@ export function AuthLayout({ children }: AuthLayoutProps) {
       </aside>
     </main>
   );
-}
+};

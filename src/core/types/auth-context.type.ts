@@ -1,20 +1,21 @@
 import type * as React from 'react';
 
-import type { SignInPayload } from '@core/types/auth/sign-in.type';
-import type { SignUpPayload } from '@core/types/auth/sign-up.type';
-
-import { AuthRole } from '../constants/auth-roles';
+import type { SignInPayload } from './auth/sign-in.dto';
+import type { SignUpPayload } from './auth/sign-up.dto';
+import type { AuthRole } from './auth.type';
 
 export type UnknownRecord = Record<string, unknown>;
 
 export type AuthUser = {
   id: Nullable<ID>;
   email: string;
+  name: string;
   role: AuthRole;
 };
 
 export type AuthSession = {
   accessToken: string;
+  refreshToken: string;
   user: AuthUser;
 };
 

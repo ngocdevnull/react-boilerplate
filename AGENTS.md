@@ -18,14 +18,14 @@ Keep UI components in a flat component-folder structure.
 src/_widgets/ui/
   button/
     index.tsx
-    button.type.ts
+    types.ts
     button.variant.ts
   pagination/
     index.tsx
-    pagination.type.ts
+    types.ts
   table/
     index.tsx
-    table.type.ts
+    types.ts
 ```
 
 ### Rule 2 - Feature-Based Architecture for Modules
@@ -37,6 +37,7 @@ Apply **Feature-Based Architecture** for `src/modules`.
 ```text
 src/modules/*/
   ├── components/
+  ├── constants/
   ├── converters/
   ├── hooks/
   ├── services/
@@ -44,6 +45,8 @@ src/modules/*/
   ├── utils/
   └── index.tsx
 ```
+
+Note: Sub-directories (e.g., `constants/`, `hooks/`, `schema/`) should only be created when they are actually used by the module.
 
 ### Rule 3 - No API Calls in Shared Components
 
@@ -100,7 +103,7 @@ All logic processing helpers and utility functions must be placed in a `utils` f
 
 ### Rule 11 - Centralized Type Declarations
 
-All type and interface declarations must be placed in a `types` folder or files ending in `.type.ts`. Non-type files (e.g., `.service.ts`, `.tsx`, `.mapper.ts`) should not contain any inline type or interface definitions.
+All type and interface declarations must be placed in a `types` folder or in files named `types.ts`. Non-type files (e.g., `.service.ts`, `.tsx`, `.mapper.ts`) should not contain any inline type or interface definitions.
 
 #### Rule 11 Example
 
@@ -112,9 +115,28 @@ export interface SignUpResult {
 }
 
 // ✅ Good
-// src/modules/sign-up/types/sign-up.type.ts
+// src/modules/sign-up/types/types.ts
 export interface SignUpResult {
   user: Nullable<AuthUser>;
   accessToken: Nullable<string>;
+}
+```
+
+### Rule 12 - Arrow Functions for Components
+
+All new React components must be declared using arrow functions.
+Do not use `function ComponentName()` style for component declarations.
+
+#### Rule 12 Example
+
+```tsx
+// ✅ Good
+export const SignInForm = () => {
+  return <div />;
+};
+
+// ❌ Bad
+export function SignInForm() {
+  return <div />;
 }
 ```

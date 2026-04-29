@@ -6,12 +6,12 @@ export const inputVariants = cva(
     variants: {
       variant: {
         default:
-          'h-10 rounded-md border border-input bg-background px-3 py-2 outline-none focus-visible:border-input-focus focus-visible:ring-1 focus-visible:ring-input-focus transition-colors',
+          'h-input rounded-input shadow-default border border-border-primary bg-transparent px-3 outline-none focus-visible:border-input-focus focus-visible:ring-1 focus-visible:ring-input-focus transition-colors',
         borderless:
-          'h-12 rounded-[5px] border border-auth-input-border bg-auth-bg px-4 py-3 text-base transition-colors',
+          'h-input rounded-input shadow-default border border-border-primary bg-transparent px-4 outline-none focus-visible:border-input-focus focus-visible:ring-1 focus-visible:ring-input-focus transition-colors',
       },
       isError: {
-        true: '!border-error focus-visible:!border-error focus-visible:!ring-error',
+        true: '!border-border-error-subtle focus-visible:!border-border-error-subtle focus-visible:!ring-border-error-subtle',
       },
     },
     defaultVariants: {
